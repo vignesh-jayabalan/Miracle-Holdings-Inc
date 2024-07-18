@@ -40,3 +40,4 @@ resource "aws_security_group" "Critical-Security-Group" {
   }
 }
 
+
