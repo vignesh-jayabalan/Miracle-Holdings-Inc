@@ -39,23 +39,3 @@ resource "aws_iam_role" "very-secure-role" {
     product       = "credit-boost"
   }
 }
-
-resource "aws_security_group" "Critical-Security-Group" {
-  name        = "Critical-Security-Group"
-  description = "Open access within this region"
-  vpc_id      = "vpc-0a370eb440da35c29"
-
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = -1
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    createdBy     = "terraform"
-    terraformTime = "${timestamp()}"
-    CanDelete     = "true"
-    Product       = "credit-boost"
-  }
-}
