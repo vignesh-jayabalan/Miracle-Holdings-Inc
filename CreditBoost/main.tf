@@ -1,14 +1,16 @@
 terraform {
 
-  backend "s3" {
-    bucket = "miracleholdings-inc"
-    key    = "terraform-states/credit-boost/terraform.tfstate"
-    region = "us-west-2"
-  }
   required_providers {
     aws = {
       version = ">= 5.39.0"
       source  = "hashicorp/aws"
+    }
+  }
+  cloud {
+    organization = "MiracleHoldings-INC-Terraform"
+    workspaces {
+      project = "credit_boost"
+      name    = "credit_boost_default"
     }
   }
 }
