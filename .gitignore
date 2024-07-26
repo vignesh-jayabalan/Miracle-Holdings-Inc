@@ -34,3 +34,4 @@ override.tf.json
 terraform.rc
 CreditBoost/.terraform.lock.hcl
 InvestTrack/.terraform.lock.hcl
+CostInsight/.terraform.lock.hcl

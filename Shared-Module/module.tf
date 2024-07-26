@@ -8,23 +8,16 @@ terraform {
   }
 }
 
-resource "aws_security_group" "shared_security_group" {
-  name        = "Shared-Security-Group"
-  description = "Open access within this region"
-  vpc_id      = "vpc-0a370eb440da35c29"
-
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = -1
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    createdBy     = "terraform"
-    terraformTime = "${timestamp()}"
-    CanDelete     = "true"
-    Product       = "from-module"
-  }
+resource "aws_sns_topic" "module_sns" {
+  name = "${var.application_name}-${var.workspace_name}-topic"
 }
 
+resource "aws_sqs_queue" "module_sns_queue" {
+  name = "${var.application_name}-${var.workspace_name}-queue"
+}
+
+resource "aws_sns_topic_subscription" "module_sns_sqs_target" {
+  topic_arn = aws_sns_topic.module_sns.arn
+  protocol  = "sqs"
+  endpoint  = aws_sqs_queue.module_sns_queue.arn
+}
