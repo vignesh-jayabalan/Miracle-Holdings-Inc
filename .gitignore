@@ -35,3 +35,9 @@ terraform.rc
 CreditBoost/.terraform.lock.hcl
 InvestTrack/.terraform.lock.hcl
 CostInsight/.terraform.lock.hcl
+
+**/.terraform/*
+.terraform.lock.*
+*.tfstate
+*.tfstate.*
+!hcp-migrate-configs/terraform.tfstate*
