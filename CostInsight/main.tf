@@ -1,7 +1,7 @@
 terraform {
 
   backend "s3" {
-    bucket               = "miracleholdings-inc"
+    bucket               = "tanushree-test1"
     workspace_key_prefix = "terraform-states/cost-insight"
     key                  = "terraform.tfstate"
     region               = "us-west-2"
