@@ -37,3 +37,9 @@ InvestTrack/.terraform.lock.hcl
 CostInsight/.terraform.lock.hcl
 
 .vscode/
+
+# These lines were added by the tf-migrate CLI tool
+_hcp-migrate-configs/
+_hcp-migrate-configs-*/
+!_hcp-migrate-configs*/terraform.tfstate*
+.terraform.lock.*
