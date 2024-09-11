@@ -13,6 +13,6 @@ resource "null_resource" "resource_1" {
 }
 
 output "output_1" {
-  value = "$(timestamp())"
+  value = timestamp()
 }
 
