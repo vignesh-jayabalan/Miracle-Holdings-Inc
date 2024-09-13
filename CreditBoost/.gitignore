@@ -1,0 +1,9 @@
+
+# These lines were added by the tf-migrate CLI tool
+**/.terraform/*
+.terraform.lock.*
+*.tfstate
+*.tfstate.*
+_hcp-migrate-configs/
+_hcp-migrate-configs-*/
+!_hcp-migrate-configs*/terraform.tfstate*
