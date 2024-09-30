@@ -1,9 +1,14 @@
 terraform {
 
-  backend "local" {
-    path = "terraform.tfstate"
-  }
 
+  cloud {
+    organization = "ManCorpInc"
+    hostname     = "app.terraform.io"
+    workspaces {
+      project = "local_application"
+      name    = "local_application_default"
+    }
+  }
 }
 
 resource "null_resource" "resource_1" {
