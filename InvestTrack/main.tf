@@ -1,14 +1,17 @@
 terraform {
 
-  backend "s3" {
-    bucket = "miracleholdings-inc"
-    key    = "terraform-states/invest-track/terraform.tfstate"
-    region = "us-west-2"
-  }
   required_providers {
     aws = {
       version = ">= 5.39.0"
       source  = "hashicorp/aws"
+    }
+  }
+  cloud {
+    organization = "ManCorpInc"
+    hostname     = "app.terraform.io"
+    workspaces {
+      project = "invest_track"
+      name    = "invest_track_default"
     }
   }
 }
